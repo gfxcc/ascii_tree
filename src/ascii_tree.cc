@@ -34,7 +34,7 @@ void Tree::pre_order(Node* node) {
 
     for (int i = 0; i != node->children.size(); i++) {
         auto child = node->children[i];
-        printf("%s `--", prefix.c_str());
+        printf("%s `--", prefix_.c_str());
         push_level(i + 1 == node->children.size() ? ' ' : '|');
         pre_order(child.get());
         pop_level();
@@ -42,11 +42,11 @@ void Tree::pre_order(Node* node) {
 }
 
 void Tree::push_level(char c) {
-    prefix += " " + string(1, c) + "  ";
+    prefix_ += " " + string(1, c) + "  ";
 }
 
 void Tree::pop_level() {
-    prefix = prefix.substr(0, prefix.size() - 4);
+    prefix_ = prefix_.substr(0, prefix_.size() - 4);
 }
 
 

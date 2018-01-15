@@ -40,6 +40,9 @@ public:
     //
     template <typename T>
     void load_binary_tree(T* root) {
+
+        reset();
+
         stack<T*> st_sample;
         stack<Node*> st_internal;
 
@@ -79,6 +82,8 @@ public:
     template <typename T>
     void load_tree(T* root) {
 
+        reset();
+
         stack<T*> st_sample;
         stack<Node*> st_internal;
 
@@ -111,7 +116,7 @@ public:
 
     void reset() {
         root_ = std::make_shared<Node>();
-        prefix.clear();
+        prefix_.clear();
     }
 
 private:
@@ -121,7 +126,7 @@ private:
     void pop_level();
 
     shared_ptr<Node> root_;
-    string prefix;
+    string prefix_;
 };
 
-} // namespace As
+} // namespace AsciiTree
